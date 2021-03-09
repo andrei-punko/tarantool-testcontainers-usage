@@ -5,12 +5,49 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>by.andd3dfx</groupId>
-    <artifactId>tarantool-testcontainers</artifactId>
+    <artifactId>tarantool-testcontainers-usage</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
+    <dependencies>
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.6.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Needed to fix logger issue: http://www.slf4j.org/codes.html -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.30</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Until we don't have proper release of testcontainers-java-tarantool with fix of issue #10 - to build on Win OS
+             we need to checkout repo: https://github.com/andrei-punko/cartridge-java-testcontainers and build 1.0.0-SNAPSHOT locally
+             TODO: switch to proper version of testcontainers-java-tarantool after when release will be prepared -->
+        <dependency>
+            <groupId>io.tarantool</groupId>
+            <artifactId>testcontainers-java-tarantool</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
