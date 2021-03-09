@@ -31,17 +31,28 @@ class TarantoolTest {
     }
 
     @Test
-    public void testExecuteScript() throws Exception {
+    public void testExecuteScriptWithCrud() throws Exception {
         container.executeScript("org/testcontainers/containers/test.lua").get();
 
         List<?> result = container.executeCommand("return user_function_no_param()").get();
-
         assertEquals(1, result.size());
         assertEquals(5, result.get(0));
 
-        List<?> result2 = container.executeCommand("return get_bands(3)").get();
-
+        List<?> result2 = container.executeCommand("return get_band(3)").get();
         checkExtractedBand(result2, 3, "Ace of Base", 1993);
+
+        container.executeCommand("return create_band(4, 'Smokie', 1996)").get();
+        List<?> result4 = container.executeCommand("return get_band(4)").get();
+        checkExtractedBand(result4, 4, "Smokie", 1996);
+
+        container.executeCommand("return update_band_year(4, 1997)").get();
+        List<?> result5 = container.executeCommand("return get_band(4)").get();
+        checkExtractedBand(result5, 4, "Smokie", 1997);
+
+        container.executeCommand("return delete_band(4)").get();
+        List<?> result6 = container.executeCommand("return get_band(4)").get();
+        assertEquals(1, result6.size());
+        assertEquals(true, ((List)result6.get(0)).isEmpty());
     }
 
     @Test
