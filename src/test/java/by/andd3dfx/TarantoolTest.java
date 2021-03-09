@@ -38,6 +38,10 @@ class TarantoolTest {
 
         assertEquals(1, result.size());
         assertEquals(5, result.get(0));
+
+        List<?> result2 = container.executeCommand("return get_bands(3)").get();
+
+        checkExtractedBand(result2, 3, "Ace of Base", 1993);
     }
 
     @Test
