@@ -31,13 +31,11 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Until we don't have proper release of testcontainers-java-tarantool with fix of issue #10 - to build on Win OS
-             we need to checkout repo: https://github.com/andrei-punko/cartridge-java-testcontainers and build 1.0.0-SNAPSHOT locally
-             TODO: switch to proper version of testcontainers-java-tarantool after when release will be prepared -->
         <dependency>
             <groupId>io.tarantool</groupId>
             <artifactId>testcontainers-java-tarantool</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>0.4.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
