@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  tarantool:
+    build: .
+    image: custom-tarantool-app
+    ports:
+      - 3301:3301
+    environment:
+      - TARANTOOL_USER_NAME=api_user
+      - TARANTOOL_USER_PASSWORD=secret

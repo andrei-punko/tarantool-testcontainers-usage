@@ -37,6 +37,17 @@
             <version>0.4.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.palantir.docker.compose</groupId>
+            <artifactId>docker-compose-junit-jupiter</artifactId>
+            <version>1.5.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.tarantool</groupId>
+            <artifactId>connector</artifactId>
+            <version>1.9.4</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -48,4 +59,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>Palantir</id>
+            <name>Palantir repository</name>
+            <url>https://dl.bintray.com/palantir/releases</url>
+        </repository>
+    </repositories>
 </project>

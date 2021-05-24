@@ -1,6 +1,23 @@
 
-# Example of Tarantool TestContainers usage
+# Different ways of starting Tarantool image during tests run
 
 [![Java CI with Maven](https://github.com/andrei-punko/tarantool-testcontainers-usage/actions/workflows/maven.yml/badge.svg)](https://github.com/andrei-punko/tarantool-testcontainers-usage/actions/workflows/maven.yml)
 
+## Example of TestContainers library usage
+
 TestContainers Tarantool module situated [here](https://github.com/tarantool/cartridge-java-testcontainers)
+
+## Example of Palantir-Docker library usage
+
+## Prerequisites
+
+- JDK 11
+
+- Docker
+
+- For Win OS need to add env variables with path to Docker executable files `docker.exe` and `docker-compose.exe`:
+
+      DOCKER_LOCATION=C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe
+      DOCKER_COMPOSE_LOCATION=C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe
+
+  These variables used by the library Palantir-Docker.

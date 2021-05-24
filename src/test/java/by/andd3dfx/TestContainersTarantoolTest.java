@@ -15,13 +15,14 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TarantoolTest {
+class TestContainersTarantoolTest {
 
     private static TarantoolContainer container;
 
     @BeforeAll
     public static void setup() {
-        container = new TarantoolContainer();
+        container = new TarantoolContainer()
+                .withDirectoryBinding("testcontainers");
         container.start();
     }
 
@@ -32,7 +33,7 @@ class TarantoolTest {
 
     @Test
     public void testExecuteScriptWithCrud() throws Exception {
-        container.executeScript("org/testcontainers/containers/test.lua").get();
+        container.executeScript("testcontainers/test.lua").get();
 
         List<?> result = container.executeCommand("return user_function_no_param()").get();
         assertEquals(1, result.size());
@@ -52,7 +53,7 @@ class TarantoolTest {
         container.executeCommand("return delete_band(4)").get();
         List<?> result6 = container.executeCommand("return get_band(4)").get();
         assertEquals(1, result6.size());
-        assertEquals(true, ((List)result6.get(0)).isEmpty());
+        assertEquals(true, ((List) result6.get(0)).isEmpty());
     }
 
     @Test
