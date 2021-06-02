@@ -20,4 +20,9 @@ TestContainers Tarantool module situated [here](https://github.com/tarantool/car
       DOCKER_LOCATION=C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe
       DOCKER_COMPOSE_LOCATION=C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe
 
+  It could be done using next commands:
+
+      setx DOCKER_LOCATION "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe"
+      setx DOCKER_COMPOSE_LOCATION "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe"
+
   These variables used by the library Palantir-Docker.
