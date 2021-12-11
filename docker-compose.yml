@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  tarantool-gui:
+    image: quay.io/basis-company/tarantool-admin
+    ports:
+      - "8000:80"
