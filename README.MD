@@ -11,10 +11,8 @@ TestContainers Tarantool module situated [here](https://github.com/tarantool/car
 
 ## Prerequisites
 
-- JDK 11
-
+- JDK 17
 - Docker
-
 - For Win OS need to add env variables with path to Docker executable files `docker.exe` and `docker-compose.exe`:
 
       DOCKER_LOCATION=C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe
