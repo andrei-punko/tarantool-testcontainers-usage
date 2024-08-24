@@ -22,7 +22,13 @@ class TestContainersTarantoolTest {
     @BeforeAll
     public static void setup() {
         container = new TarantoolContainer()
-                .withDirectoryBinding("testcontainers");
+                .withDirectoryBinding("testcontainers")
+        // Default commands:
+        //      .withCopyFileToContainer(MountableFile.forClasspathResource("testcontainers/server.lua"), "/opt/tarantool/")
+        //      .withCommand("tarantool", "/opt/tarantool/server.lua")
+        //      .withExposedPorts(3301)
+        //      .withReuse(true)
+        ;
         container.start();
     }
 
