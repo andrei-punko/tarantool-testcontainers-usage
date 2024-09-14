@@ -5,7 +5,7 @@
 
 ## Prerequisites
 
-- JDK 17
+- JDK 21
 - Docker
 
 ## Example of TestContainers library usage
