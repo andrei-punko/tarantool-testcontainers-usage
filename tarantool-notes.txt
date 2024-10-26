@@ -1,0 +1,15 @@
+
+Tarantool - это application server со встроенной БД с возможностью персистентного хранения
+
+* Tarantool CLI
+tarantoolctl connect sisb_user:U8Twu2JcnnnWwdG@127.0.0.1:3301
+
+box.space			    			-- список спейсов
+box.space.portfolios		    	-- описание спейса portfolios
+box.space.portfolios:select()	    -- получить все записи в спейсе portfolios
+box.schema.user.info('sisb_user') 	-- отобразить инофрмацию о пользователе
+box.space.portfolios:format()       -- отобразить формат спейса
+box.space.portfolios.index.sk_authKey:select(box.space.authorization:select('c88543e4-b0a5-47b9-8c88-07205ff52fd7')[1]['ucn'])[1]
+
+* Логи
+/tmp/tarantool.log
